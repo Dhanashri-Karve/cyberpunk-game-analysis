@@ -23,6 +23,9 @@ steam_df["% Gain"] = pd.to_numeric(steam_df["% Gain"], errors="coerce")
 # Fill missing gain values (e.g. the game's launch month) with 0
 steam_df[['Gain', '% Gain']] = steam_df[['Gain', '% Gain']].fillna(0)
 
+#Renaming the column Month
+steam_df = steam_df.rename(columns={'Month': 'Snapshot_Date'})
+
 # Check for missing values
 print(steam_df.isna().sum())
 

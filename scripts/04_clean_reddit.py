@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load raw Reddit data into DataFrame
-reddit_df = pd.read_csv('cyberpunk_reddit_data.csv')
+reddit_df = pd.read_csv('cyberpunk_reddit_data_500.csv')
 
 # Convert 'Date' to proper dates; anything unparseable becomes NaT
 reddit_df['Post_Date'] = pd.to_datetime(reddit_df['Post_Date'], errors='coerce')
