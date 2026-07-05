@@ -21,7 +21,7 @@ It connects two data sources to answer one central question:
 - Patch 2.0 (Sept 2023) drove a further **+247% spike**, confirmed by Steam data
 - The game maintains **24,000+ avg concurrent players in 2026** — stable for a single-player title
 
-> 📄 Full findings, methodology, and interpretation → **[Notion Case Study](#)** ← add your Notion link here
+> 📄 Full findings, methodology, and interpretation → **[Notion Case Study](https://app.notion.com/p/Redemption-Arc-Cyberpunk-2077-Data-Case-Study-3858e213d259806e9a76c659f0af8c7e)**
 
 ---
 
@@ -49,29 +49,36 @@ It connects two data sources to answer one central question:
 ## Project Structure
 
 ```
-cyberpunk-2077-analytics/
-│
+cyberpunk_game_analysis/
 ├── data/
-│   ├── raw/                 ← original extracted CSVs (do not edit)
-│   └── staging/             ← cleaned CSVs ready for analysis
-│
-├── scripts/               
-│   ├── 01_extract_steam.py
-│   ├── 02_extract_reddit.py
+│   ├── raw/
+│   │   ├── cyberpunk_players_count.csv
+│   │   ├── cyberpunk_reddit_data.csv
+│   │   └── cyberpunk_reddit_data_500.csv
+│   └── staging/
+│       ├── staging_steam_players.csv
+│       ├── staging_reddit_community.csv
+│       ├── staging_reddit_with_sentiment.csv
+│       ├── powerbi_monthly_summary.csv
+│       ├── powerbi_reddit_posts.csv
+│       └── powerbi_steam_players.csv
+├── database/
+│   └── cyberpunk_analysis.db
+├── report/
+│   ├── cyberpunk_dashboard.pbix
+│   ├── cyberpunk_report.pdf
+│   └── cyberpunk_report_screenshot.png
+├── scripts/
+│   ├── 01_extract_steam_data.py
+│   ├── 02_extract_reddit_data.py
 │   ├── 03_clean_steam.py
 │   ├── 04_clean_reddit.py
 │   ├── 05_load_to_sqlite.py
-│   └── 06_sentiment_tagging.py
-│
+│   ├── 06_sentiment_tagging.py
+│   └── 07_export_for_powerbi.py
 ├── sql/
-│   └── analysis_queries.sql ← all 3 research question queries
-│
-├── database/
-│   └── cyberpunk_analysis.db
-│
-├── dashboard/
-│   └── cyberpunk_dashboard.pbix
-│
+│   └── analysis_queries.sql
+├── .gitignore
 └── README.md
 ```
 
@@ -93,7 +100,7 @@ python scripts/06_sentiment_tagging.py
 Then open `database/cyberpunk_analysis.db` in any SQLite viewer
 and run queries from `sql/analysis_queries.sql`.
 
-Open `dashboard/cyberpunk_dashboard.pbix` in Power BI Desktop to view the report.
+Open `report/Cyberpunk_Analytics Report.pbix` in Power BI Desktop to view the report.
 
 > **Note on re-extraction:** The extraction scripts (01 and 02) are included
 > for transparency only. Re-running script 02 scrapes Reddit's public pages
@@ -110,12 +117,17 @@ Open `dashboard/cyberpunk_dashboard.pbix` in Power BI Desktop to view the report
 
 ---
 
+## Dashboard Preview
+
+![Cyberpunk 2077 Report](report/cyberpunk_report_screenshot.png)
+
+> Full interactive report: open `report/Cyberpunk_Analytics Report.pbix` 
+> in Power BI Desktop to explore
+
+---
+
 ## About
 
 Built by **Dhanashri Karve** as a portfolio project demonstrating a complete
-end-to-end data analytics pipeline.
-
-📄 [Full Case Study on Notion](#) 
-🔗 [LinkedIn](#) 
-
+end-to-end data analytics project.
 
