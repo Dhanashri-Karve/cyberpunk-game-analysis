@@ -117,9 +117,9 @@ Open `report/Cyberpunk_Analytics Report.pbix` in Power BI Desktop to view the re
 
 ---
 
-## Dashboard Preview
+## Report Preview
 
-![Cyberpunk 2077 Report](report/cyberpunk_report_screenshot.png)
+![Cyberpunk 2077 Report Snapshot](report/cyberpunk_report_screenshot.png)
 
 ![Full interactive Report](https://github.com/Dhanashri-Karve/cyberpunk-game-analysis/blob/main/report/Cyberpunk_Analytics%20Report.pbix)
 >  open in Power BI Desktop to explore
